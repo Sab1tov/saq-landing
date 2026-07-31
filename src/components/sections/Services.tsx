@@ -1,68 +1,70 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Check, Star } from "lucide-react"
-
-const services = [
-  {
-    id: "single",
-    title: "Разовый осмотр",
-    price: "20 000 – 30 000 ₸",
-    description: "Для тех, кто уже нашел конкретное объявление и хочет проверить машину перед покупкой.",
-    features: [
-      "Выезд к авто",
-      "Проверка кузова толщиномером",
-      "Компьютерная диагностика всех блоков",
-      "Проверка документов",
-      "Подробный фото/видео отчет",
-    ],
-    cta: "Заказать осмотр",
-    featured: false,
-  },
-  {
-    id: "day",
-    title: "Эксперт на день",
-    price: "80 000 ₸",
-    description: "Для тех, кто выбрал несколько вариантов и хочет успеть проверить их все за 1 день.",
-    features: [
-      "Неограниченное число проверок за день",
-      "Передвижение на авто эксперта",
-      "Аргументированный торг с продавцами",
-      "Помощь в выборе лучшего варианта",
-    ],
-    cta: "Нанять эксперта",
-    featured: false,
-  },
-  {
-    id: "fullkey",
-    title: "Подбор под ключ",
-    price: "200 000 ₸",
-    description: "Полное делегирование поиска. Вы просто получаете идеальную машину под ваши критерии.",
-    features: [
-      "Поиск по заданным параметрам и бюджету",
-      "Неограниченное число выездов",
-      "Торг в пользу клиента",
-      "Юридическое сопровождение сделки",
-    ],
-    cta: "Заказать подбор",
-    featured: true,
-  },
-]
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Services() {
+  const { t } = useLanguage()
+
+  const services = [
+    {
+      id: "single",
+      title: t("serviceSingleTitle"),
+      price: t("serviceSinglePrice"),
+      description: t("serviceSingleDesc"),
+      features: [
+        t("serviceSingleF1"),
+        t("serviceSingleF2"),
+        t("serviceSingleF3"),
+        t("serviceSingleF4"),
+        t("serviceSingleF5"),
+      ],
+      cta: t("serviceSingleCta"),
+      featured: false,
+    },
+    {
+      id: "day",
+      title: t("serviceDayTitle"),
+      price: t("serviceDayPrice"),
+      description: t("serviceDayDesc"),
+      features: [
+        t("serviceDayF1"),
+        t("serviceDayF2"),
+        t("serviceDayF3"),
+        t("serviceDayF4"),
+      ],
+      cta: t("serviceDayCta"),
+      featured: false,
+    },
+    {
+      id: "fullkey",
+      title: t("serviceFullTitle"),
+      price: t("serviceFullPrice"),
+      description: t("serviceFullDesc"),
+      features: [
+        t("serviceFullF1"),
+        t("serviceFullF2"),
+        t("serviceFullF3"),
+        t("serviceFullF4"),
+      ],
+      cta: t("serviceFullCta"),
+      featured: true,
+    },
+  ]
+
   return (
     <section id="services" className="py-24 bg-[#0F0F11]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
           <p className="text-xs tracking-[0.3em] text-[#DC2626] font-medium uppercase mb-3">
-            Наши услуги
+            {t("servicesTag")}
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#E4E4E7] tracking-tight mb-4">
-            Тарифы и цены
+            {t("servicesHeading")}
           </h2>
           <p className="text-[#A1A1AA] max-w-md mx-auto">
-            Выберите подходящий формат. Каждая услуга включает честный отчет
-            о реальном состоянии автомобиля.
+            {t("servicesSubheading")}
           </p>
         </div>
 
@@ -83,7 +85,7 @@ export function Services() {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <Badge className="bg-[#DC2626] text-white border-0 px-3 py-1 text-xs font-semibold tracking-wider uppercase">
                     <Star className="size-3 mr-1" />
-                    Выбор клиентов
+                    {t("servicesBadgeChoice")}
                   </Badge>
                 </div>
               )}
@@ -111,7 +113,7 @@ export function Services() {
                 </ul>
               </div>
 
-              <a href="https://wa.me/77001234567" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/77053084328" target="_blank" rel="noopener noreferrer">
                 <Button
                   className={`w-full ${
                     service.featured

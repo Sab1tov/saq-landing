@@ -1,45 +1,44 @@
 import { ShieldCheck, Cpu, Wrench, FileSearch } from "lucide-react"
-
-const checks = [
-  {
-    icon: ShieldCheck,
-    title: "Кузов и силовая структура",
-    description:
-      "Проверка толщиномером, поиск шпаклевки, проверка геометрии, следов съема деталей и подушек безопасности.",
-  },
-  {
-    icon: Cpu,
-    title: "Компьютерная диагностика",
-    description:
-      "Сканирование всех электронных блоков на скрытые ошибки и поиск реального пробега в дублирующих блоках.",
-  },
-  {
-    icon: Wrench,
-    title: "Техническая часть",
-    description:
-      "Оценка состояния двигателя, КПП, подвески, тормозной системы, поиск течей технических жидкостей.",
-  },
-  {
-    icon: FileSearch,
-    title: "Юридическая чистота",
-    description:
-      "Проверка базы залогов, арестов, штрафов, совпадения VIN-кодов и документов.",
-  },
-]
+import { useLanguage } from "@/context/LanguageContext"
 
 export function WhatWeCheck() {
+  const { t } = useLanguage()
+
+  const checks = [
+    {
+      icon: ShieldCheck,
+      title: t("check1Title"),
+      description: t("check1Desc"),
+    },
+    {
+      icon: Cpu,
+      title: t("check2Title"),
+      description: t("check2Desc"),
+    },
+    {
+      icon: Wrench,
+      title: t("check3Title"),
+      description: t("check3Desc"),
+    },
+    {
+      icon: FileSearch,
+      title: t("check4Title"),
+      description: t("check4Desc"),
+    },
+  ]
+
   return (
     <section id="how" className="py-24 bg-[#18181B]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-xs tracking-[0.3em] text-[#DC2626] font-medium uppercase mb-3">
-            Что входит в проверку
+            {t("checkTag")}
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#E4E4E7] tracking-tight mb-4">
-            Что именно мы проверяем
+            {t("checkHeading")}
           </h2>
           <p className="text-[#A1A1AA] max-w-md mx-auto">
-            Полная проверка по 4 ключевым направлениям. Скрыть от нас ничего не получится.
+            {t("checkSubheading")}
           </p>
         </div>
 

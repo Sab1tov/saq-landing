@@ -1,16 +1,19 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone } from "lucide-react"
-
-const navLinks = [
-  { label: "Услуги", href: "#services" },
-  { label: "Как работаем", href: "#how" },
-  { label: "Результаты", href: "#portfolio" },
-  { label: "Контакты", href: "#contacts" },
-]
+import { useLanguage } from "@/context/LanguageContext"
+import { LanguageSwitcher } from "@/components/LanguageSwitcher"
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { t } = useLanguage()
+
+  const navLinks = [
+    { label: t("navServices"), href: "#services" },
+    { label: t("navHow"), href: "#how" },
+    { label: t("navPortfolio"), href: "#portfolio" },
+    { label: t("navContacts"), href: "#contacts" },
+  ]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0F0F11]/90 backdrop-blur-md border-b border-white/[0.06]">
@@ -41,15 +44,16 @@ export function Header() {
 
           {/* Right side */}
           <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher />
             <a
-              href="tel:+77001234567"
+              href="tel:+77053084328"
               className="flex items-center gap-2 text-sm text-[#E4E4E7] font-medium hover:text-white transition-colors"
             >
               <Phone className="size-4 text-[#DC2626]" />
-              +7 (700) 123-45-67
+              +7 (705) 308-43-28
             </a>
             <a
-              href="https://wa.me/77001234567"
+              href="https://wa.me/77053084328"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -59,13 +63,16 @@ export function Header() {
             </a>
           </div>
 
-          {/* Mobile burger */}
-          <button
-            className="md:hidden p-2 text-[#A1A1AA] hover:text-[#E4E4E7]"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+          {/* Mobile burger & switcher */}
+          <div className="flex items-center gap-2 md:hidden">
+            <LanguageSwitcher />
+            <button
+              className="p-2 text-[#A1A1AA] hover:text-[#E4E4E7]"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -84,13 +91,13 @@ export function Header() {
               </a>
             ))}
           </nav>
-          <a href="tel:+77001234567" className="flex items-center gap-2 text-sm text-[#E4E4E7] font-medium px-3 py-2">
+          <a href="tel:+77053084328" className="flex items-center gap-2 text-sm text-[#E4E4E7] font-medium px-3 py-2">
             <Phone className="size-4 text-[#DC2626]" />
-            +7 (700) 123-45-67
+            +7 (705) 308-43-28
           </a>
-          <a href="https://wa.me/77001234567" target="_blank" rel="noopener noreferrer" className="block mt-2">
+          <a href="https://wa.me/77053084328" target="_blank" rel="noopener noreferrer" className="block mt-2">
             <Button className="w-full bg-[#DC2626] hover:bg-[#b91c1c] text-white">
-              Написать в WhatsApp
+              {t("writeWhatsapp")}
             </Button>
           </a>
         </div>

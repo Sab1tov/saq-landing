@@ -1,7 +1,16 @@
 import { Button } from "@/components/ui/button"
 import { ChevronRight, Shield } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Hero() {
+  const { t } = useLanguage()
+
+  const stats = [
+    { value: t("heroStat1Value"), label: t("heroStat1Label") },
+    { value: t("heroStat2Value"), label: t("heroStat2Label") },
+    { value: t("heroStat3Value"), label: t("heroStat3Label") },
+  ]
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
       {/* Background image with overlay */}
@@ -24,29 +33,25 @@ export function Hero() {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#DC2626]/10 border border-[#DC2626]/20 mb-6">
             <Shield className="size-3.5 text-[#DC2626]" />
             <span className="text-xs text-[#DC2626] font-medium tracking-wider uppercase">
-              Независимая автоэкспертиза
+              {t("heroBadge")}
             </span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#E4E4E7] leading-tight tracking-tight mb-6">
-            Профессиональный подбор и{" "}
-            <span className="text-[#DC2626]">независимая</span> экспертиза авто
+            {t("heroTitle1")}
+            <span className="text-[#DC2626]">{t("heroTitleAccent")}</span>
+            {t("heroTitle2")}
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg text-[#A1A1AA] leading-relaxed mb-10 max-w-xl">
-            Защитим от покупки восстановленного хлама, скрученного пробега
-            и юридических проблем. Сэкономим ваше время и деньги.
+            {t("heroSubtitle")}
           </p>
 
           {/* Stats row */}
           <div className="flex flex-wrap gap-8 mb-10">
-            {[
-              { value: "500+", label: "Подборов выполнено" },
-              { value: "97%", label: "Довольных клиентов" },
-              { value: "от 100 000 ₸", label: "Средняя экономия" },
-            ].map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl font-bold text-[#E4E4E7]">{stat.value}</div>
                 <div className="text-sm text-[#A1A1AA]">{stat.label}</div>
@@ -56,12 +61,12 @@ export function Hero() {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-3">
-            <a href="https://wa.me/77001234567" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/77053084328" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 className="w-full sm:w-auto bg-[#DC2626] hover:bg-[#b91c1c] text-white border-0 px-8 h-12 text-base font-semibold"
               >
-                Получить консультацию
+                {t("heroCtaConsult")}
                 <ChevronRight className="size-5" />
               </Button>
             </a>
@@ -71,7 +76,7 @@ export function Hero() {
                 variant="outline"
                 className="w-full sm:w-auto border-white/20 text-[#E4E4E7] hover:bg-white/[0.06] h-12 text-base"
               >
-                Рассчитать стоимость
+                {t("heroCtaCalc")}
               </Button>
             </a>
           </div>
@@ -81,7 +86,7 @@ export function Hero() {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10">
         <div className="w-px h-10 bg-gradient-to-b from-transparent to-[#A1A1AA]/40" />
-        <span className="text-xs text-[#A1A1AA]/60 tracking-widest uppercase">Scroll</span>
+        <span className="text-xs text-[#A1A1AA]/60 tracking-widest uppercase">{t("heroScroll")}</span>
       </div>
     </section>
   )

@@ -1,7 +1,16 @@
 import { TrendingDown, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function MarketingTrigger() {
+  const { t } = useLanguage()
+
+  const stats = [
+    { stat: "90%", label: t("marketingStat1Label") },
+    { stat: "300 000 ₸", label: t("marketingStat2Label") },
+    { stat: t("marketingStat3Value"), label: t("marketingStat3Label") },
+  ]
+
   return (
     <section className="py-20 bg-[#0F0F11] relative overflow-hidden">
       {/* Background glow */}
@@ -15,23 +24,19 @@ export function MarketingTrigger() {
         </div>
 
         <h2 className="text-3xl sm:text-4xl font-bold text-[#E4E4E7] mb-6 tracking-tight">
-          В 90% случаев наши услуги{" "}
-          <span className="text-[#DC2626]">обходятся вам бесплатно</span>
+          {t("marketingHeading1")}
+          <span className="text-[#DC2626]">{t("marketingHeadingAccent")}</span>
         </h2>
 
         <p className="text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-10">
-          Находя скрытые дефекты, мы аргументированно сбиваем цену у продавца.
-          В среднем наш торг экономит клиенту от{" "}
-          <span className="text-[#E4E4E7] font-semibold">100 000 до 500 000 ₸</span>.
+          {t("marketingSub1")}
+          <span className="text-[#E4E4E7] font-semibold">{t("marketingSubHighlight")}</span>
+          {t("marketingSub2")}
         </p>
 
         {/* Highlight numbers */}
         <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-10">
-          {[
-            { stat: "90%", label: "Случаев со скидкой на авто" },
-            { stat: "300 000 ₸", label: "Средняя экономия клиента" },
-            { stat: "7 лет", label: "Опыт работы на рынке Казахстана" },
-          ].map((item) => (
+          {stats.map((item) => (
             <div
               key={item.label}
               className="rounded-xl bg-[#18181B] border border-white/[0.08] px-6 py-5"
@@ -42,12 +47,12 @@ export function MarketingTrigger() {
           ))}
         </div>
 
-        <a href="https://wa.me/77001234567" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/77053084328" target="_blank" rel="noopener noreferrer">
           <Button
             size="lg"
             className="bg-[#DC2626] hover:bg-[#b91c1c] text-white border-0 h-12 px-8 text-base font-semibold"
           >
-            Сэкономить на покупке авто
+            {t("marketingCta")}
             <ChevronRight className="size-5" />
           </Button>
         </a>

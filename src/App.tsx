@@ -22,7 +22,7 @@ export function App() {
 
       {/* Floating WhatsApp button — mobile priority */}
       <a
-        href="https://wa.me/77001234567"
+        href="https://wa.me/77053084328"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-5 z-50 flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-semibold text-sm px-4 py-3 rounded-full shadow-lg shadow-[#25D366]/30 transition-all duration-200 hover:scale-105 md:hidden"
@@ -34,7 +34,7 @@ export function App() {
 
       {/* Desktop floating button */}
       <a
-        href="https://wa.me/77001234567"
+        href="https://wa.me/77053084328"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 hidden md:flex size-14 items-center justify-center bg-[#25D366] hover:bg-[#1ebe5d] text-white rounded-full shadow-lg shadow-[#25D366]/30 transition-all duration-200 hover:scale-110"
